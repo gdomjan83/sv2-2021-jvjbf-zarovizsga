@@ -22,6 +22,4 @@ public class Channel {
     public int getNumberOfVideos() {
         return numberOfVideos;
     }
-
-
 }
