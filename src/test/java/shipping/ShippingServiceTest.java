@@ -43,50 +43,50 @@ class ShippingServiceTest {
 
     }
 
-//    @Test
-//    void testCollectItemsByBreakableAndWeight(){
-//        List<Transportable> result = shippingService.collectItemsByBreakableAndWeight(true,21);
-//        assertEquals(3, result.size());
-//
-//        result = shippingService.collectItemsByBreakableAndWeight(false,40);
-//        assertEquals(1, result.size());
-//        assertEquals(50, result.get(0).getWeight());
-//    }
-//
-//    @Test
-//    void testCollectTransportableByCountry(){
-//        Map<String, Integer> result = shippingService.collectTransportableByCountry();
-//
-//        assertEquals(4, result.get("Hungary"));
-//        assertEquals(2, result.get("Germany"));
-//        assertEquals(1,result.get("Russia"));
-//
-//        shippingService.addPackage(new InternationalPackage(24,false,"Russia",8900));
-//        result = shippingService.collectTransportableByCountry();
-//
-//        assertEquals(4, result.get("Hungary"));
-//        assertEquals(2, result.get("Germany"));
-//        assertEquals(2,result.get("Russia"));
-//        assertEquals(1,result.get("England"));
-//    }
-//
-//    @Test
-//    void testSortInternationalPackagesByDistance(){
-//        List<Transportable> result = shippingService.sortInternationalPackagesByDistance();
-//        assertEquals(3800, ((InternationalPackage)shippingService.getPackages().get(4)).getDistance());
-//
-//        assertEquals("Austria",result.get(0).getDestinationCountry());
-//        assertEquals("Germany",result.get(1).getDestinationCountry());
-//        assertEquals("Germany",result.get(2).getDestinationCountry());
-//        assertEquals("England",result.get(3).getDestinationCountry());
-//        assertEquals("Russia",result.get(4).getDestinationCountry());
-//
-//        shippingService.addPackage(new InternationalPackage(24,false,"Slovakia",200));
-//        result = shippingService.sortInternationalPackagesByDistance();
-//
-//        assertEquals("Slovakia",result.get(0).getDestinationCountry());
-//
-//    }
-//
+    @Test
+    void testCollectItemsByBreakableAndWeight(){
+        List<Transportable> result = shippingService.collectItemsByBreakableAndWeight(true,21);
+        assertEquals(3, result.size());
+
+        result = shippingService.collectItemsByBreakableAndWeight(false,40);
+        assertEquals(1, result.size());
+        assertEquals(50, result.get(0).getWeight());
+    }
+
+    @Test
+    void testCollectTransportableByCountry(){
+        Map<String, Integer> result = shippingService.collectTransportableByCountry();
+
+        assertEquals(4, result.get("Hungary"));
+        assertEquals(2, result.get("Germany"));
+        assertEquals(1,result.get("Russia"));
+
+        shippingService.addPackage(new InternationalPackage(24,false,"Russia",8900));
+        result = shippingService.collectTransportableByCountry();
+
+        assertEquals(4, result.get("Hungary"));
+        assertEquals(2, result.get("Germany"));
+        assertEquals(2,result.get("Russia"));
+        assertEquals(1,result.get("England"));
+    }
+
+    @Test
+    void testSortInternationalPackagesByDistance(){
+        List<Transportable> result = shippingService.sortInternationalPackagesByDistance();
+        assertEquals(3800, ((InternationalPackage)shippingService.getPackages().get(4)).getDistance());
+
+        assertEquals("Austria",result.get(0).getDestinationCountry());
+        assertEquals("Germany",result.get(1).getDestinationCountry());
+        assertEquals("Germany",result.get(2).getDestinationCountry());
+        assertEquals("England",result.get(3).getDestinationCountry());
+        assertEquals("Russia",result.get(4).getDestinationCountry());
+
+        shippingService.addPackage(new InternationalPackage(24,false,"Slovakia",200));
+        result = shippingService.sortInternationalPackagesByDistance();
+
+        assertEquals("Slovakia",result.get(0).getDestinationCountry());
+
+    }
+
 
 }

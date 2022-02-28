@@ -16,6 +16,10 @@ public class InternationalPackage implements Transportable {
         this.distance = distance;
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
     @Override
     public int getWeight() {
         return weight;
