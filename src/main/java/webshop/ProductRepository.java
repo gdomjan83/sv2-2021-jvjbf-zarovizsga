@@ -16,7 +16,6 @@ public class ProductRepository {
 
     public long insertProduct(String productName, int price, int stock) {
         try (Connection conn = dataSource.getConnection();
-             //language=sql
              PreparedStatement stmt = conn.prepareStatement(
                      "insert into products (product_name, price, stock) values (?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, productName);
@@ -25,12 +24,11 @@ public class ProductRepository {
             stmt.executeUpdate();
             return returnGeneratedKey(stmt);
         } catch (SQLException sqle) {
-            throw new IllegalStateException(" Cannot connect to database.", sqle);
+            throw new IllegalStateException(" Can not connect to database.", sqle);
         }
     }
 
     public Product findProductById(long id) {
-        //language=sql
         return jdbcTemplate.queryForObject("select * from products where id = ?",
                 (rs, i) -> new Product(
                         rs.getLong("id"),
@@ -42,11 +40,10 @@ public class ProductRepository {
 
     public void updateProductStock(long id, int amount) {
         int newStock = getCurrentStockOfProduct(id) - amount;
-        //language=sql
         jdbcTemplate.update("update products set stock = ? where id = ?", newStock, id);
     }
 
-    public int getCurrentStockOfProduct(long id) {
+    public Integer getCurrentStockOfProduct(long id) {
         return jdbcTemplate.queryForObject("select stock from products where id = ?", (rs, i) -> rs.getInt(1), id);
     }
 

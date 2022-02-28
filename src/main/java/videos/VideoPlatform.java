@@ -11,9 +11,10 @@ public class VideoPlatform {
     private List<Channel> channels = new ArrayList<>();
 
     public void addChannel(Channel channelToAdd) {
-        if (channelToAdd != null) {
-            channels.add(channelToAdd);
+        if (channelToAdd == null) {
+            throw new IllegalArgumentException("Channel is null.");
         }
+        channels.add(channelToAdd);
     }
 
     public List<Channel> getChannels() {

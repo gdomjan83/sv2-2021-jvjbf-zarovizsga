@@ -6,6 +6,9 @@ public class ShippingService {
     private List<Transportable> packages = new ArrayList<>();
 
     public void addPackage(Transportable packageToAdd) {
+        if (packageToAdd == null) {
+            throw new IllegalArgumentException("Package is null.");
+        }
         packages.add(packageToAdd);
     }
 
