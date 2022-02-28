@@ -18,5 +18,8 @@ public class SentenceTransformer {
         if (!(".!?".contains(String.valueOf(letters[letters.length - 1])))) {
             throw new IllegalArgumentException("Must end with . ! or ?");
         }
+        if (sentence == null) {
+            throw new IllegalArgumentException("Input is null.");
+        }
     }
 }
